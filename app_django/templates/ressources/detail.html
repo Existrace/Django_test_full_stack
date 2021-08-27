@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Détail d'une réservation</title>
+</head>
+<body>
+    <h1>{{ ressource.libelle }}</h1>
+    <h4>Les réservations :</h4>
+    <ul>
+        {% for booking in ressource.booking_set.all %}
+            <li>{{ booking.title }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
