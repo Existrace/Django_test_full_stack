@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+{% load static %}
+{% load i18n %}
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <script src="https://kit.fontawesome.com/8f79a00f9c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+    <title> {% block title %} {% endblock title %} </title>
+
+    <style>{% block css %} {% endblock css %}</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-bottom: 50px">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'django_app:index' %}">Reserv'Online</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown"
+                aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>
+
+{% block body %} {% endblock body %}
+
+<footer class="bg-dark text-light position-fixed fixed-bottom">
+    <p class="text-center py-2 my-0">Copyright &copy; 2021 | All rights reserved</p>
+</footer>
+
+<!-- Optional JavaScript -->
+
+<script src="{% static 'js/bootstrap.js' %}"></script>
+
+{% block js %} {% endblock js %}
+</body>
+</html>
