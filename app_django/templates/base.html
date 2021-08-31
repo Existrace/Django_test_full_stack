@@ -26,6 +26,27 @@
                 aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href=''>{% trans 'Bonjour,' %} {{ request.user.username }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href='{% url 'django_app:profile' %}'>{% trans 'Mon compte' %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{% url 'django_app:logout' %}">{% trans 'Déconnexion' %}</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link " href="{% url 'django_app:login' %}">{% trans 'Connexion' %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'django_app:register' %}">{% trans 'Inscription' %}</a>
+                </li>
+            {% endif %}
+        </ul>
     </div>
 </nav>
 

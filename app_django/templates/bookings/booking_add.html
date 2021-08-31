@@ -1,0 +1,32 @@
+{% extends 'ressources/../base.html' %}
+{% load i18n %}
+{% load bootstrap_tags %}
+
+{% block title %} {% trans 'Réservation' %} {% endblock title %}
+
+{% block css %} {% endblock css %}
+
+{% block body %}
+
+    <div class="container text-center center-align">
+        <div class="row" style="margin-bottom: 20px">
+            <div class="col-md-12">
+                <h1 class="title_website">Reserv'<span style="color: firebrick">Online</span></h1>
+                <hr/>
+                <h5>{% trans 'Réservation' %}</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {% comment %}<form method="POST">
+                    {% csrf_token %} {{ login_form | as_bootstrap }}
+                    <button type="submit" class="btn btn-primary mt-3">{% trans 'Confirmer' %}</button>
+                </form>{% endcomment %}
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
+
+{% block js %} {% endblock js %}
+

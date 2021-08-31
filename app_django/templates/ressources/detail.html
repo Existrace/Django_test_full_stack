@@ -1,4 +1,4 @@
-{% extends 'ressources/base.html' %}
+{% extends 'ressources/../base.html' %}
 {% load i18n %}
 
 {% block title %}  {{ ressource.libelle }} {% endblock title %}
@@ -20,6 +20,7 @@
                         <p class="card-text"><i class="fas fa-box-open"></i> Type : {{ ressource.type }} || <i
                                 class="fas fa-users"></i> Capacité : {{ ressource.capacity }}</p>
                     </div>
+                    <a href="{% url 'django_app:booking_add' %}" class="btn btn-primary">Réserver</a>
                     <hr/>
                     <a href="{% url 'django_app:index' %}" class="btn btn-primary">Retour</a>
                 </div>
