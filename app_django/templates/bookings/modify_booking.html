@@ -1,0 +1,43 @@
+{% extends 'ressources/../base.html' %}
+{% load i18n %}
+{% load bootstrap_tags %}
+
+{% block title %} {% trans 'Modification réservation' %} {% endblock title %}
+
+{% block css %} {% endblock css %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row" style="margin-bottom: 20px">
+            <div class="col-md-12">
+                <h1 class="title_website">Adopt'Your'<span style="color: firebrick">Hero</span></h1>
+                <hr/>
+                <h5 class="text-muted">{% trans 'Modification de la réservation numéro' %} {{ booking.id }}
+                    {% trans 'du héros ' %}{{ booking.ressource.libelle }} {% trans 'au nom de ' %} {{ booking.user.username }}</h5>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-2">
+                <h4 class="mb-3">{% trans 'Ma réservation à modifier' %}</h4>
+                <p>{% trans 'Nom de réservation : ' %}{{ booking.title }}</p>
+                <p>{% trans 'Date de début : ' %} {{ booking.date_start }}</p>
+                <p>{% trans 'Nom de fin : ' %} {{ booking.date_end }}</p>
+            </div>
+            <div class="col-md-10 text-center center-align">
+                <h4 class="mb-3">{% trans 'Modification' %}</h4>
+                <form method="POST">
+                    <div class="d-grid gap-2 col-5 mx-auto">
+                        {% csrf_token %} {{ modify_booking_form | as_bootstrap }}
+                        <button type="submit"
+                                class="btn btn-primary mt-3">{% trans 'Confirmer modification !' %}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
+
+{% block js %} {% endblock js %}
+

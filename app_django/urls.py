@@ -17,6 +17,11 @@ urlpatterns = [
     # Profil of user
     path('profile/', views.user_profile, name="profile"),
 
-    # Add booking for one user
-    path('booking_add/', views.booking_add, name="booking_add"),
+    # PART BOOKING
+    # Add booking for one user for one ressource
+    path('booking_add/<int:res_id>', views.booking_add, name="booking_add"),
+    # Delete booking for one user for one ressource
+    path('booking_delete/<int:booking_id>', views.delete_booking, name="booking_delete"),
+    # Modify booking for one user for one ressource
+    path('booking_modify/<int:booking_id>', views.modify_booking, name="booking_modify"),
 ]

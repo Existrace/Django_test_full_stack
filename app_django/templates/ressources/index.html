@@ -10,8 +10,8 @@
     <div class="container text-center center-align">
         <div class="row" style="margin-bottom: 20px">
             <div class="col-md-12">
-                <h1 class="title_website">Reserv'<span style="color: firebrick">Online</span></h1>
-                <h5>{% translate "Vous voulez réserver un concert ? C'est ici que ça se passe." %}</h5>
+                <h1 class="title_website">Adopt'Your'<span style="color: firebrick">Hero</span></h1>
+                <h5>{% translate "Vous avez besoin d'aide ? Pression au travail ? En privé ? Louez votre héros pour vous aider dans vos problèmes du quotidien." %}</h5>
                 <hr/>
             </div>
         </div>
@@ -19,8 +19,7 @@
             {% if ressource_list %}
                 {% for ressource in ressource_list %}
                     <div class="col-md-4">
-
-                        <div class="card">
+                        <div class="card m-2">
                             <div class="card-body">
                                 <h5 class="card-title"><a
                                         href="{% url 'django_app:detail' ressource.id %}">{{ ressource.libelle }}</a>

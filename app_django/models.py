@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Ressource(models.Model):
@@ -16,6 +17,7 @@ class Booking(models.Model):
     date_start = models.DateTimeField()
     date_end = models.DateTimeField()
     ressource = models.ForeignKey(Ressource, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title

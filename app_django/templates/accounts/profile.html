@@ -8,18 +8,47 @@
 
 {% block body %}
 
-    <div class="container text-center center-align">
+    <div class="container text-center center-align mb-5">
         <div class="row" style="margin-bottom: 20px">
             <div class="col-md-12">
-                <h1 class="title_website">Reserv'<span style="color: firebrick">Online</span></h1>
+                <h1 class="title_website">Adopt'Your'<span style="color: firebrick">Hero</span></h1>
                 <hr/>
-                <h3>{% trans 'Profil utilisateur' %}</h3>
+                <h5 class="text-muted">{% trans 'Mon profil utilisateur' %}</h5>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <h5>{% trans 'Les réservations au nom de :' %} {{ profile.username }}</h5>
-
+                <hr/>
+                {% if bookings %}
+                    {% for booking in bookings %}
+                        <div class="card m-4">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    {% trans 'Réservation :' %}
+                                    <a href="{% url 'django_app:detail' booking.ressource.id %}">{{ booking.ressource.libelle }}</a>
+                                </h5>
+                                <h5 class="card-subtitle mt-3 mb-2 text-muted">
+                                    {% trans 'Au nom de : ' %}{{ booking.title }}
+                                </h5>
+                                <h6 class="card-subtitle mt-3 mb-2">
+                                    Du : <br>
+                                    {{ booking.date_start }}<br>
+                                    Au : <br>
+                                    {{ booking.date_end }}
+                                </h6>
+                                <div class="d-grid gap-2 col-4 mx-auto">
+                                    <a href="{% url 'django_app:booking_modify' booking.id %}" class="btn btn-primary">Modifier</a>
+                                    <hr/>
+                                    <a href="{% url 'django_app:booking_delete' booking.id %}"
+                                       class="btn btn-danger mt-1">Supprimer</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>Vous n'avez aucune réservation.</p>
+                {% endif %}
             </div>
         </div>
     </div>

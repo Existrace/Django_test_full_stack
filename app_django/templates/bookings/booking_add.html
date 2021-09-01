@@ -11,17 +11,19 @@
     <div class="container text-center center-align">
         <div class="row" style="margin-bottom: 20px">
             <div class="col-md-12">
-                <h1 class="title_website">Reserv'<span style="color: firebrick">Online</span></h1>
+                <h1 class="title_website">Adopt'Your'<span style="color: firebrick">Hero</span></h1>
                 <hr/>
-                <h5>{% trans 'Réservation' %}</h5>
+                <h5 class="text-muted">{% trans 'Réservation de' %} {{ ressource.libelle }}</h5>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                {% comment %}<form method="POST">
-                    {% csrf_token %} {{ login_form | as_bootstrap }}
-                    <button type="submit" class="btn btn-primary mt-3">{% trans 'Confirmer' %}</button>
-                </form>{% endcomment %}
+                <form method="POST">
+                    <div class="d-grid gap-2 col-5 mx-auto">
+                        {% csrf_token %} {{ add_booking_form | as_bootstrap }}
+                        <button type="submit" class="btn btn-primary mt-3">{% trans 'Je réserve ce héros !' %}</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
