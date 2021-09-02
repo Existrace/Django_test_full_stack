@@ -30,7 +30,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             {% if request.user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href=''>{% trans 'Bonjour,' %} {{ request.user.username }}</a>
+                    <a class="nav-link">{% trans 'Bonjour,' %} {{ request.user.username }}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href='{% url 'django_app:profile' %}'>{% trans 'Mon compte' %}</a>
@@ -57,9 +57,9 @@
 </footer>
 
 <!-- Optional JavaScript -->
-
 <script src="{% static 'js/bootstrap.js' %}"></script>
 
-{% block js %} {% endblock js %}
+{% block js %}
+{% endblock js %}
 </body>
 </html>

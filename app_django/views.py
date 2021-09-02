@@ -1,9 +1,11 @@
 from django.contrib.auth.models import User
+from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserLoginForm, UserRegisterForm, Manager_bookingForm
 from .models import Ressource, Booking
+import datetime
 
 
 def index(request):
@@ -29,7 +31,7 @@ def login(request):
         if login_form.is_valid():
             user = auth.authenticate(username=request.POST['username'],
                                      password=request.POST['password'])
-            messages.success(request, "Succès connexion ! O/")
+            # messages.success(request, "Succès connexion ! O/")
 
             if user:
                 auth.login(user=user, request=request)
@@ -58,9 +60,8 @@ def register(request):
                                      password=request.POST['password1'])
             if user:
                 auth.login(user=user, request=request)
-                messages.success(request, "Vous avez bien été inscrit")
-            else:
-                messages.error(request, "Impossible de vous inscrire, veuillez réessayer ultérieurement")
+                # messages.success(request, "Vous avez bien été inscrit")
+
     else:
         registration_form = UserRegisterForm
     return render(request, 'accounts/register.html', {
@@ -71,7 +72,7 @@ def register(request):
 def logout(request):
     """Log the user out"""
     auth.logout(request)
-    messages.success(request, "Déconnexion réussie")
+    # messages.success(request, "Déconnexion réussie")
     return redirect(reverse('django_app:index'))
 
 
@@ -79,8 +80,21 @@ def logout(request):
 def user_profile(request):
     """The user's profile page"""
     user = User.objects.get(email=request.user.email)
-    bookings = Booking.objects.filter(user_id=user.id)
-    return render(request, 'accounts/profile.html', {"profile": user, 'bookings': bookings})
+
+    # Find last month and current month
+    today = datetime.date.today()
+    first = today.replace(day=1)  # Find the first day of this month
+    last_month = first - datetime.timedelta(days=1)
+    currentMonth = today.month
+
+    bookings = Booking.objects.filter(date_end__month__gte=currentMonth, user_id=user.id).order_by('date_end')
+    # bookings = Booking.objects.filter(Q(date_start__month=currentMonth) | Q(date_end__month=None), user_id=user.id)
+
+    # Try to get all booking for last month
+    past_bookings = Booking.objects.filter(user_id=user.id, date_end__month__lte=last_month.month).order_by('date_end')
+
+    return render(request, 'accounts/profile.html', {"profile": user, 'bookings': bookings,
+                                                     'past_bookings': past_bookings})
 
 
 @login_required
@@ -103,7 +117,7 @@ def booking_add(request, res_id):
 
     else:
         add_booking_form = Manager_bookingForm
-        messages.error(request, "Réservation impossible")
+        # messages.error(request, "Réservation impossible")
 
     if request.user.is_authenticated:
         return render(request, 'bookings/booking_add.html', {

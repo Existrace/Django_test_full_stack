@@ -20,35 +20,78 @@
             <div class="col-md-12">
                 <h5>{% trans 'Les réservations au nom de :' %} {{ profile.username }}</h5>
                 <hr/>
-                {% if bookings %}
-                    {% for booking in bookings %}
-                        <div class="card m-4">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    {% trans 'Réservation :' %}
-                                    <a href="{% url 'django_app:detail' booking.ressource.id %}">{{ booking.ressource.libelle }}</a>
-                                </h5>
-                                <h5 class="card-subtitle mt-3 mb-2 text-muted">
-                                    {% trans 'Au nom de : ' %}{{ booking.title }}
-                                </h5>
-                                <h6 class="card-subtitle mt-3 mb-2">
-                                    Du : <br>
-                                    {{ booking.date_start|date}}<br>
-                                    Au : <br>
-                                    {{ booking.date_end|date}}
-                                </h6>
-                                <div class="d-grid gap-2 col-4 mx-auto">
-                                    <a href="{% url 'django_app:booking_modify' booking.id %}" class="btn btn-primary">Modifier</a>
-                                    <hr/>
-                                    <a href="{% url 'django_app:booking_delete' booking.id %}"
-                                       class="btn btn-danger mt-1">Supprimer</a>
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="current-tab" data-bs-toggle="tab" data-bs-target="#home"
+                                type="button" role="tab" aria-controls="home" aria-selected="true">
+                            Réservations en cours et à venir
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="passed_tab" data-bs-toggle="tab" data-bs-target="#passed"
+                                type="button" role="tab" aria-controls="profile" aria-selected="false">
+                            Réservations passées
+                        </button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="current-tab">
+                        {% if bookings %}
+                            {% for booking in bookings %}
+                                <div class="card m-4">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            {% trans 'Réservation :' %}
+                                            <a href="{% url 'django_app:detail' booking.ressource.id %}">{{ booking.ressource.libelle }}</a>
+                                        </h5>
+                                        <h5 class="card-subtitle mt-3 mb-2 text-muted">
+                                            {% trans 'Au nom de : ' %}{{ booking.title }}
+                                        </h5>
+                                        <h6 class="card-subtitle mt-3 mb-2">
+                                            Du : <br>
+                                            {{ booking.date_start|date }}<br>
+                                            Au : <br>
+                                            {{ booking.date_end|date }}
+                                        </h6>
+                                        <div class="d-grid gap-2 col-4 mx-auto">
+                                            <a href="{% url 'django_app:booking_modify' booking.id %}"
+                                               class="btn btn-primary">Modifier</a>
+                                            <a href="{% url 'django_app:booking_delete' booking.id %}"
+                                               class="btn btn-danger mt-1">Supprimer</a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    <p>Vous n'avez aucune réservation.</p>
-                {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            <p>Vous n'avez aucune réservation.</p>
+                        {% endif %}
+                    </div>
+                    <div class="tab-pane fade" id="passed" role="tabpanel" aria-labelledby="passed-tab">
+                        {% if past_bookings %}
+                            {% for booking_past in past_bookings %}
+                                <div class="card m-4">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            {% trans 'Réservation :' %}
+                                            <a href="{% url 'django_app:detail' booking_past.ressource.id %}">{{ booking_past.ressource.libelle }}</a>
+                                        </h5>
+                                        <h5 class="card-subtitle mt-3 mb-2 text-muted">
+                                            {% trans 'Au nom de : ' %}{{ booking_past.title }}
+                                        </h5>
+                                        <h6 class="card-subtitle mt-3 mb-2">
+                                            Du : <br>
+                                            {{ booking_past.date_start|date }}<br>
+                                            Au : <br>
+                                            {{ booking_past.date_end|date }}
+                                        </h6>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <p>Vous n'avez aucune réservation.</p>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
