@@ -30,7 +30,27 @@
                     <div class="d-grid gap-2 col-5 mx-auto">
                         {% csrf_token %} {{ modify_booking_form | as_bootstrap }}
                         <button type="submit"
-                                class="btn btn-primary mt-3">{% trans 'Confirmer modification !' %}</button>
+                                class="btn btn-primary mt-3">{% trans 'Confirmer modification !' %}
+                        </button>
+                        {% comment %}<form method="post">
+                            <div class="d-grid gap-2 col-10 mx-auto">
+                                {% csrf_token %}
+                                <div class="mb-3">
+                                    <label for="title" class="form-label">Nom de réservation</label>
+                                    <input type="text" class="form-control" id="title" name="title" value="{{ booking.title }}">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="date_end" class="form-label">Date de début</label>
+                                    <input type="text" id="date_start" name="date_start" value="{{ booking.date_start. }}"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="date_end" class="form-label">Date de fin</label>
+                                    <input type="text" id="date_end" name="date_end" value="{{ booking.date_end }}"/>
+                                </div>
+                                <button type="submit" class="btn btn-primary">{% trans 'Confirmer modification' %}</button>
+                                <a href="{% url 'django_app:profile'%}" class="btn btn-primary">Annuler modification</a>
+                            </div>
+                        </form>{% endcomment %}
                     </div>
                 </form>
             </div>

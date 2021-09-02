@@ -53,7 +53,7 @@ class UserRegisterForm(UserCreationForm):
         return password2
 
 
-class Add_bookingForm(ModelForm):
+class Manager_bookingForm(ModelForm):
     class Meta:
         model = Booking
         # exclude = ['ressource_id', 'user_id']
@@ -63,7 +63,17 @@ class Add_bookingForm(ModelForm):
         label="Nom de réservation"
     )
 
-    date_start = forms.SplitDateTimeField(required=True,
+    date_start = forms.DateField(
+        label='Date de début',
+        initial=datetime.date.today
+    )
+
+    date_end = forms.DateField(
+        label='Date de début',
+        initial=datetime.date.today
+    )
+
+    """date_start = forms.SplitDateTimeField(required=False,
                                           label="Date de début",
                                           input_date_formats=['%Y-%m-%d'],
                                           input_time_formats=['%H:%M:%S', '%H:%M'],
@@ -73,12 +83,11 @@ class Add_bookingForm(ModelForm):
                                               time_format='%H:%M:%S')
                                           )
 
-    date_end = forms.SplitDateTimeField(required=True,
+    date_end = forms.SplitDateTimeField(required=False,
                                         label="Date de fin",
                                         input_date_formats=['%Y-%m-%d'],
-                                        input_time_formats=['%H:%M:%S', '%H:%M'],
                                         widget=forms.SplitDateTimeWidget(
                                             date_attrs={'type': 'date'}, date_format='%Y-%m-%d',
                                             time_attrs={'type': 'time'},
                                             time_format='%H:%M:%S')
-                                        )
+                                        )"""

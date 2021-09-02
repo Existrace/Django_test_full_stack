@@ -33,9 +33,9 @@
                                 </h5>
                                 <h6 class="card-subtitle mt-3 mb-2">
                                     Du : <br>
-                                    {{ booking.date_start }}<br>
+                                    {{ booking.date_start|date}}<br>
                                     Au : <br>
-                                    {{ booking.date_end }}
+                                    {{ booking.date_end|date}}
                                 </h6>
                                 <div class="d-grid gap-2 col-4 mx-auto">
                                     <a href="{% url 'django_app:booking_modify' booking.id %}" class="btn btn-primary">Modifier</a>

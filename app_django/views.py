@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
-from .forms import UserLoginForm, UserRegisterForm, Add_bookingForm
+from .forms import UserLoginForm, UserRegisterForm, Manager_bookingForm
 from .models import Ressource, Booking
 
 
@@ -92,7 +92,7 @@ def booking_add(request, res_id):
 
     # Take all data of the form
     if request.method == "POST":
-        add_booking_form = Add_bookingForm(request.POST)
+        add_booking_form = Manager_bookingForm(request.POST)
 
         if add_booking_form.is_valid():
             booking = add_booking_form.save(commit=False)
@@ -102,7 +102,7 @@ def booking_add(request, res_id):
             return redirect('django_app:profile')
 
     else:
-        add_booking_form = Add_bookingForm
+        add_booking_form = Manager_bookingForm
         messages.error(request, "Réservation impossible")
 
     if request.user.is_authenticated:
@@ -129,17 +129,17 @@ def modify_booking(request, booking_id):
 
     # Take all data of the form
     if request.method == "POST":
-        modify_booking_form = Add_bookingForm(request.POST)
+        modify_booking_form = Manager_bookingForm(request.POST, instance=booking)
 
         if modify_booking_form.is_valid():
+            booking_to_update = modify_booking_form.save(commit=False)
 
-            """JE NE SAIS PAS ENCORE FAIRE POUR METTRE A JOUR..."""
-
+            booking_to_update.save()
             return redirect('django_app:profile')
 
     else:
-        modify_booking_form = Add_bookingForm
-        messages.error(request, "Réservation impossible")
+        modify_booking_form = Manager_bookingForm
+        messages.error(request, "Modification impossible")
 
     return render(request, 'bookings/modify_booking.html',
                   {'booking': booking, 'modify_booking_form': modify_booking_form})
