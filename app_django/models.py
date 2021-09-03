@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import date
 
 
 class Ressource(models.Model):
@@ -21,3 +22,9 @@ class Booking(models.Model):
 
     def __str__(self):
         return self.title
+
+    """Compare two dates """
+    @property
+    def is_in_futur(self):
+        return date.today() < self.date_start.date()
+
