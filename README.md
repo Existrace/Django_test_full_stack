@@ -6,3 +6,8 @@ Identifiant utilisateur :
 
 Username : Cally
 Mot de passe: password123456789
+
+Identifiant admin :
+
+Username : admin
+Mot de passe admin
