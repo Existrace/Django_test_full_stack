@@ -24,13 +24,13 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="current-tab" data-bs-toggle="tab" data-bs-target="#home"
                                 type="button" role="tab" aria-controls="home" aria-selected="true">
-                            Réservations en cours et à venir ({{ bookings|length }})
+                            {% trans "Réservations en cours et à venir" %} ({{ bookings|length }})
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="passed_tab" data-bs-toggle="tab" data-bs-target="#passed"
                                 type="button" role="tab" aria-controls="profile" aria-selected="false">
-                            Réservations passées ({{ past_bookings|length }})
+                            {% trans "Réservations passées" %} ({{ past_bookings|length }})
                         </button>
                     </li>
                 </ul>
@@ -55,20 +55,20 @@
                                         </h6>
                                         <div class="d-grid gap-2 col-4 mx-auto">
                                             {% if booking.is_in_futur %}
-                                                <h6 style="color: darkgreen">Modifiable (à venir)</h6>
+                                                <h6 style="color: darkgreen">{% trans "Modifiable (à venir)" %}</h6>
                                                 <a href="{% url 'django_app:booking_modify' booking.id %}"
-                                                   class="btn btn-primary">Modifier</a>
+                                                   class="btn btn-primary">{% trans "Modifier" %}</a>
                                             {% else %}
-                                                <h6 style="color: orangered">Non modifiable (en cours)</h6>
+                                                <h6 style="color: orangered">{% trans "Non modifiable (en cours)" %}</h6>
                                             {% endif %}
                                             <a href="{% url 'django_app:booking_delete' booking.id %}"
-                                               class="btn btn-danger mt-1">Supprimer</a>
+                                               class="btn btn-danger mt-1">{% trans "Supprimer" %}</a>
                                         </div>
                                     </div>
                                 </div>
                             {% endfor %}
                         {% else %}
-                            <p>Vous n'avez aucune réservation.</p>
+                            <p>{% trans "Pas de ressource existante." %}</p>
                         {% endif %}
                     </div>
                     <div class="tab-pane fade" id="passed" role="tabpanel" aria-labelledby="passed-tab">
@@ -93,7 +93,7 @@
                                 </div>
                             {% endfor %}
                         {% else %}
-                            <p>Vous n'avez aucune réservation.</p>
+                            <p>{% trans "Pas de ressource existante." %}</p>
                         {% endif %}
                     </div>
                 </div>

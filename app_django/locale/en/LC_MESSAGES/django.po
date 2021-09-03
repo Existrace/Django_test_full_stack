@@ -1,0 +1,185 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-03 17:15+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\app_django\templates\accounts\login.html:5
+#: .\app_django\templates\accounts\login.html:16
+#: .\app_django\templates\base.html:43
+msgid "Connexion"
+msgstr "Login"
+
+#: .\app_django\templates\accounts\login.html:24
+#: .\app_django\templates\accounts\register.html:24
+msgid "Confirmer"
+msgstr "Confirm"
+
+#: .\app_django\templates\accounts\profile.html:5
+#: .\app_django\templates\base.html:36
+msgid "Mon compte"
+msgstr "My account"
+
+#: .\app_django\templates\accounts\profile.html:16
+msgid "Mon profil utilisateur"
+msgstr "My user profile"
+
+#: .\app_django\templates\accounts\profile.html:21
+msgid "Les réservations au nom de :"
+msgstr "Bookings in the name of"
+
+#: .\app_django\templates\accounts\profile.html:27
+msgid "Réservations en cours et à venir"
+msgstr "Current and future bookings"
+
+#: .\app_django\templates\accounts\profile.html:33
+#, fuzzy
+#| msgid "Réservation de"
+msgid "Réservations passées"
+msgstr "Booking of"
+
+#: .\app_django\templates\accounts\profile.html:44
+#: .\app_django\templates\accounts\profile.html:80
+msgid "Réservation :"
+msgstr "Booking :"
+
+#: .\app_django\templates\accounts\profile.html:48
+#: .\app_django\templates\accounts\profile.html:84
+msgid "Au nom de : "
+msgstr "In the name of : "
+
+#: .\app_django\templates\accounts\profile.html:58
+msgid "Modifiable (à venir)"
+msgstr "Modifiable (Date to come)"
+
+#: .\app_django\templates\accounts\profile.html:60
+#, fuzzy
+#| msgid "Modification"
+msgid "Modifier"
+msgstr "Change"
+
+#: .\app_django\templates\accounts\profile.html:62
+msgid "Non modifiable (en cours)"
+msgstr "Not modifiable (in progress)"
+
+#: .\app_django\templates\accounts\profile.html:65
+msgid "Supprimer"
+msgstr "Delete"
+
+#: .\app_django\templates\accounts\profile.html:71
+#: .\app_django\templates\accounts\profile.html:96
+#: .\app_django\templates\ressources\index.html:34
+msgid "Pas de ressource existante."
+msgstr "No existing resources."
+
+#: .\app_django\templates\accounts\register.html:5
+#: .\app_django\templates\accounts\register.html:16
+#: .\app_django\templates\base.html:46
+msgid "Inscription"
+msgstr "Sign up"
+
+#: .\app_django\templates\base.html:33
+msgid "Bonjour,"
+msgstr "Hello,"
+
+#: .\app_django\templates\base.html:39
+msgid "Déconnexion"
+msgstr "Logout"
+
+#: .\app_django\templates\base.html:52
+msgid "Changement langue (fr/en)"
+msgstr "Language change (fr/en)"
+
+#: .\app_django\templates\bookings\booking_add.html:5
+msgid "Réservation"
+msgstr "Booking"
+
+#: .\app_django\templates\bookings\booking_add.html:16
+msgid "Réservation de"
+msgstr "Booking of"
+
+#: .\app_django\templates\bookings\booking_add.html:24
+msgid "Je réserve ce héros !"
+msgstr "I'm booking this hero !"
+
+#: .\app_django\templates\bookings\booking_add.html:25
+#: .\app_django\templates\bookings\modify_booking.html:35
+#: .\app_django\templates\ressources\detail.html:27
+msgid "Retour"
+msgstr "Back"
+
+#: .\app_django\templates\bookings\modify_booking.html:5
+msgid "Modification réservation"
+msgstr "Modification booking"
+
+#: .\app_django\templates\bookings\modify_booking.html:16
+msgid "Modification de la réservation numéro"
+msgstr "Change of booking number"
+
+#: .\app_django\templates\bookings\modify_booking.html:17
+msgid "du héros "
+msgstr "of the hero"
+
+#: .\app_django\templates\bookings\modify_booking.html:17
+msgid "au nom de "
+msgstr "in the name of"
+
+#: .\app_django\templates\bookings\modify_booking.html:22
+msgid "Ma réservation à modifier"
+msgstr "My booking to change"
+
+#: .\app_django\templates\bookings\modify_booking.html:23
+msgid "Nom de réservation : "
+msgstr "Booking name"
+
+#: .\app_django\templates\bookings\modify_booking.html:24
+msgid "Date de début : "
+msgstr "Start date : "
+
+#: .\app_django\templates\bookings\modify_booking.html:25
+msgid "Nom de fin : "
+msgstr "End date : "
+
+#: .\app_django\templates\bookings\modify_booking.html:28
+msgid "Modification"
+msgstr "Change"
+
+#: .\app_django\templates\bookings\modify_booking.html:33
+msgid "Confirmer modification !"
+msgstr "Confirm change !"
+
+#: .\app_django\templates\ressources\detail.html:21
+msgid "Capacité actuelle"
+msgstr "Current capacity"
+
+#: .\app_django\templates\ressources\detail.html:25
+#, fuzzy
+#| msgid "Je réserve ce héros !"
+msgid "Je réserve mon héros !"
+msgstr "I'm booking this hero !"
+
+#: .\app_django\templates\ressources\index.html:14
+msgid ""
+"Vous avez besoin d'aide ? Pression au travail ? En privé ? Louez votre héros "
+"pour vous aider dans vos problèmes du quotidien."
+msgstr ""
+"Do you need help? Pressure at work? In private? Hire your hero  to help you "
+"with your daily problems"
+
+#: .\app_django\templates\utility\set_language.html:5
+msgid "Changement langue"
+msgstr "Language change"

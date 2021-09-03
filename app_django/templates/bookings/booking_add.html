@@ -22,6 +22,7 @@
                     <div class="d-grid gap-2 col-5 mx-auto">
                         {% csrf_token %} {{ add_booking_form | as_bootstrap }}
                         <button type="submit" class="btn btn-primary mt-3">{% trans 'Je réserve ce héros !' %}</button>
+                         <a href="{% url 'django_app:index' %}" class="btn btn-primary mb-5">{% trans 'Retour' %}</a>
                     </div>
                 </form>
             </div>

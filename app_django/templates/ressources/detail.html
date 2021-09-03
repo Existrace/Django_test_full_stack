@@ -20,11 +20,11 @@
                         <p class="card-text"><i class="fas fa-box-open"></i> Type : {{ ressource.type }} || <i
                                 class="fas fa-users"></i> {% trans "Capacité actuelle" %} : {{ ressource.capacity }}</p>
                     </div>
-                    <div class="d-grid gap-2 col-4 mx-auto">
-                        <a href="{% url 'django_app:booking_add' ressource.id %}" class="btn btn-primary mt-1">Je
-                            réserve mon héros !</a>
+                    <div class="d-grid gap-2 col-2 mx-auto">
+                        <a href="{% url 'django_app:booking_add' ressource.id %}" class="btn btn-primary mt-1">
+                            {% trans "Je réserve mon héros !" %}</a>
                         <hr/>
-                        <a href="{% url 'django_app:index' %}" class="btn btn-primary mb-5">Retour</a>
+                        <a href="{% url 'django_app:index' %}" class="btn btn-primary mb-5">{% trans 'Retour' %}</a>
                     </div>
                 </div>
             </div>

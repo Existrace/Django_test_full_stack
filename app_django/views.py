@@ -1,10 +1,11 @@
 from django.contrib.auth.models import User
-from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserLoginForm, UserRegisterForm, Manager_bookingForm
 from .models import Ressource, Booking
+from django.utils import translation
+from django.conf import settings
 import datetime
 
 
@@ -16,6 +17,17 @@ def index(request):
 def detail(request, res_id):
     ressource = get_object_or_404(Ressource, pk=res_id)
     return render(request, 'ressources/detail.html', {'ressource': ressource})
+
+
+def set_language(request):
+    """Change language of the website """
+    if request.method == 'POST':
+        language = request.POST.get('language', settings.LANGUAGE_CODE)
+        translation.activate(language)
+        request.session[translation.LANGUAGE_SESSION_KEY] = language
+
+        return redirect('django_app:index')
+    return render(request, 'utility/set_language.html')
 
 
 def login(request):

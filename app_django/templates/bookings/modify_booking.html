@@ -20,9 +20,9 @@
         <div class="row mt-5">
             <div class="col-md-2">
                 <h4 class="mb-3">{% trans 'Ma réservation à modifier' %}</h4>
-                <p>{% trans 'Nom de réservation : ' %}{{ booking.title }}</p>
-                <p>{% trans 'Date de début : ' %} {{ booking.date_start }}</p>
-                <p>{% trans 'Nom de fin : ' %} {{ booking.date_end }}</p>
+                <p>{% trans 'Nom de réservation : ' %} {{ booking.title }}</p>
+                <p>{% trans 'Date de début : ' %} <br>{{ booking.date_start|date }}</p>
+                <p>{% trans 'Nom de fin : ' %} <br> {{ booking.date_end|date }}</p>
             </div>
             <div class="col-md-10 text-center center-align">
                 <h4 class="mb-3">{% trans 'Modification' %}</h4>
@@ -32,25 +32,7 @@
                         <button type="submit"
                                 class="btn btn-primary mt-3">{% trans 'Confirmer modification !' %}
                         </button>
-                        {% comment %}<form method="post">
-                            <div class="d-grid gap-2 col-10 mx-auto">
-                                {% csrf_token %}
-                                <div class="mb-3">
-                                    <label for="title" class="form-label">Nom de réservation</label>
-                                    <input type="text" class="form-control" id="title" name="title" value="{{ booking.title }}">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="date_end" class="form-label">Date de début</label>
-                                    <input type="text" id="date_start" name="date_start" value="{{ booking.date_start. }}"/>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="date_end" class="form-label">Date de fin</label>
-                                    <input type="text" id="date_end" name="date_end" value="{{ booking.date_end }}"/>
-                                </div>
-                                <button type="submit" class="btn btn-primary">{% trans 'Confirmer modification' %}</button>
-                                <a href="{% url 'django_app:profile'%}" class="btn btn-primary">Annuler modification</a>
-                            </div>
-                        </form>{% endcomment %}
+                         <a href="{% url 'django_app:index' %}" class="btn btn-primary mb-5">{% trans 'Retour' %}</a>
                     </div>
                 </form>
             </div>

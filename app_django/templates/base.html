@@ -46,6 +46,11 @@
                     <a class="nav-link" href="{% url 'django_app:register' %}">{% trans 'Inscription' %}</a>
                 </li>
             {% endif %}
+            |
+            <li class="nav-item">
+                <a class="nav-link"
+                   href="{% url 'django_app:set_language' %}">{% trans 'Changement langue (fr/en)' %}</a>
+            </li>
         </ul>
     </div>
 </nav>
